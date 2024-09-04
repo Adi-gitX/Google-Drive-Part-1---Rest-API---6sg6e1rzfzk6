@@ -1,13 +1,11 @@
 import fs from 'fs';
-
-const getAFile = (fileName) => {
-  const filePath = `./root/${fileName}`;
-  if (fs.existsSync(filePath)) {
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    return { fileContent };
-  } else {
-    return { message: 'File does not exist' };
-  }
-};
+const getAFile = (filepath) => {
+    try{
+        const file = fs.readFileSync(filepath, 'utf8');
+        return file;
+    }catch(err){
+        console.log(err);
+    }
+}
 
 export default getAFile;
