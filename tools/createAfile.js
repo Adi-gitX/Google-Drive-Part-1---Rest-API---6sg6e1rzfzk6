@@ -1,9 +1,11 @@
 import fs from 'fs';
-
-const createAfile = (fileName, fileData) => {
-  const filePath = `./root/${fileName}`;
-  fs.writeFileSync(filePath, fileData);
-  return { message: 'File created successfully' };
+const createAfile = (filePath, fileData) => {
+    try{
+        const data = fs.writeFileSync(filePath, fileData);
+        return ("created successfully")
+    }catch(err){
+        return err
+    }
 };
 
 export default createAfile;
